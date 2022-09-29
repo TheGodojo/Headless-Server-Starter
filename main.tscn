@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxfw38keyqdxv"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_7qujj"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_7qujj")
+
+[node name="Menu" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PortInput" type="LineEdit" parent="Menu"]
+offset_right = 67.0
+offset_bottom = 31.0
+text = "9999"
+placeholder_text = "Port"
+
+[node name="MaxPlayersInput" type="LineEdit" parent="Menu"]
+offset_top = 35.0
+offset_right = 67.0
+offset_bottom = 66.0
+text = "32"
+placeholder_text = "Max Players"
+
+[node name="Start" type="Button" parent="Menu"]
+offset_top = 70.0
+offset_right = 67.0
+offset_bottom = 101.0
+text = "Start
+"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://player_character/player_character.tscn")
+spawn_path = NodePath("..")
+
+[connection signal="pressed" from="Menu/Start" to="." method="_on_start_pressed"]
